@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" id="logo">
+  </header>
+
+  <div class="container">
+    <h1>User Page</h1>
+    <div id="user-list">Loading...</div>
+  </div>
+
+  <footer>
+    <p>© 2024 Kareem Mangood. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function loadCurrentNumbers() {
+      fetch('/current_numbers')
+        .then(response => response.json())
+        .then(data => {
+          const userListDiv = document.getElementById('user-list');
+          userListDiv.innerHTML = `
+            <div class="support-item">
+              <div class="label">Customer Support 1</div>
+              <div class="number">${data[1] !== null ? data[1] : 'None'}</div>
+            </div>
+            <div class="support-item">
+              <div class="label">Customer Support 2</div>
+              <div class="number">${data[2] !== null ? data[2] : 'None'}</div>
+            </div>
+            <div class="support-item">
+              <div class="label">Customer Support 3</div>
+              <div class="number">${data[3] !== null ? data[3] : 'None'}</div>
+            </div>
+          `;
+        })
+        .catch(error => {
+          document.getElementById('user-list').textContent = 'Error fetching data';
+        });
+    }
+
+    // Load the current numbers when the page loads
+    loadCurrentNumbers();
+
+    // Use setInterval to periodically refresh the content
+    setInterval(loadCurrentNumbers, 2500); // Refresh every 5 seconds
+  </script>
+</body>
+</html>

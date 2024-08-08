@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Support</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" id="logo">
+  </header>
+
+  <div class="container">
+    <h1>Customer Support Page {{ support_id }}</h1>
+    <div class="centered-content">
+      <div id="current-user">Loading...</div>
+      <button id="next-button">Next</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 Kareem Mangood. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const supportId = {{ support_id | tojson }};
+    const currentUserDiv = document.getElementById('current-user');
+    const nextButton = document.getElementById('next-button');
+
+    function updateCurrentUser() {
+      fetch(`/current_numbers`)
+        .then(response => response.json())
+        .then(data => {
+          currentUserDiv.textContent = `Number Withdrawn: ${data[supportId] !== null ? data[supportId] : 'None'}`;
+        })
+        .catch(error => {
+          currentUserDiv.textContent = 'Error fetching data';
+        });
+    }
+
+    nextButton.addEventListener('click', () => {
+      fetch(`/support/${supportId}/next`, { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+          updateCurrentUser();
+          // Update current user div directly without alert
+          currentUserDiv.textContent = `Number Withdrawn: ${data.next_number}`;
+        })
+        .catch(error => {
+          currentUserDiv.textContent = 'Error: ' + error.message;
+        });
+    });
+
+    // Initial load of current number
+    updateCurrentUser();
+  </script>
+</body>
+</html>

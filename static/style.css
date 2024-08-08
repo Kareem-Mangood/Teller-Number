@@ -1,0 +1,141 @@
+/* Add or update this section in your style.css file */
+
+/* Logo styling */
+#logo {
+  height: 100px; /* Change this value to the size you prefer */
+  width: auto;   /* Maintain aspect ratio */
+}
+
+/* Header styling */
+header {
+  background: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+}
+
+/* Container styling */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  min-height: calc(100vh - 100px); /* Ensure container takes up the space needed */
+}
+
+/* Center the h1 element */
+h1 {
+  color: #333;
+  font-size: 28px; /* Increase the font size */
+  text-align: center; /* Center the text */
+  margin-bottom: 20px;
+}
+
+/* User list styling */
+#user-list {
+  display: flex;
+  justify-content: space-around; /* Distribute items with space around them */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+}
+
+/* Support item styling */
+.support-item {
+  flex: 1;
+  min-width: 150px; /* Set a minimum width for the items */
+  padding: 20px;    /* Increase padding for better spacing */
+  text-align: center;
+  border-right: 1px solid #ddd;
+  box-sizing: border-box;
+  margin: 5px;
+  display: flex;
+  flex-direction: column; /* Stack number below label */
+  align-items: center;
+}
+
+/* Style for the label text */
+.support-item .label {
+  font-size: 24px; /* Change this value to adjust the label font size */
+  font-weight: bold; /* Make the label bold */
+}
+
+/* Style for the number text */
+.support-item .number {
+  font-size: 32px; /* Change this value to adjust the number font size */
+  font-weight: bold; /* Make the number bold */
+  margin-top: 10px; /* Add space above the number */
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  color: #777;
+  margin-top: 20px;
+  background: #f8f8f8;
+  border-top: 1px solid #ddd;
+  position: fixed; /* Fix the footer to the bottom of the page */
+  bottom: 0;
+  width: 100%; /* Full width of the page */
+}
+
+
+
+/* Basic Reset */
+body, h1, div, button {
+  margin: 0;
+  padding: 0;
+}
+
+/* Styling for the body and container */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.container {
+  text-align: center; /* Center-align text in container */
+  margin-top: 50px;   /* Add space from top */
+}
+
+/* Styling for the centered content */
+.centered-content {
+  display: inline-block; /* Allows centering of block-level elements */
+  text-align: center;    /* Center-align text and elements */
+}
+
+#current-user {
+  font-size: 24px;  /* Font size for current user text */
+  margin-bottom: 20px; /* Space below the text */
+}
+
+#next-button {
+  font-size: 18px;   /* Font size for button text */
+  padding: 10px 20px; /* Padding inside the button */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default button border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+#next-button:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Styling for the footer */
+footer {
+  text-align: center; /* Center-align footer text */
+  margin-top: 50px; /* Space above footer */
+  font-size: 14px; /* Font size for footer */
+  color: #888; /* Footer text color */
+}
+
+#current-user {
+  font-size: 24px;  /* Increase font size */
+  margin-bottom: 20px; /* Space below the text */
+  font-weight: bold; /* Make the text bold */
+}
